@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.title">Pozitiv — Python & Full-Stack разработчик</title>
+  <meta name="description" content="Pozitiv — Python & Full-Stack developer. Telegram-боты, сайты, AI-продукты и софт. / Telegram bots, websites, AI products and software.">
+  <meta name="theme-color" content="#07080c">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pozitiv — Python & Full-Stack developer">
+  <meta property="og:description" content="Telegram bots, websites, AI products and software.">
+  <meta property="og:url" content="https://pozitivstek.github.io/">
+  <meta property="og:image" content="https://pozitivstek.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Pozitiv">Pozitiv<span class="brand-dot">.</span></a>
+  <nav class="nav-links" data-i18n-aria="nav.label" aria-label="Навигация">
+    <a href="#about" data-priority="low" data-i18n="nav.about">Обо мне</a>
+    <a href="#projects" data-i18n="nav.projects">Проекты</a>
+    <a href="#resume" data-i18n="nav.resume">Резюме</a>
+    <a href="#contact" data-priority="low" data-i18n="nav.contact">Контакты</a>
+  </nav>
+  <button id="lang-toggle" class="chip" type="button" data-i18n-aria="lang.label" aria-label="Сменить язык">EN</button>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="shape-picker" role="group" data-i18n-aria="hero.shapes" aria-label="Форма частиц">
+      <button type="button" class="chip" data-shape="sphere" aria-pressed="true" data-i18n="shape.sphere">Сфера</button>
+      <button type="button" class="chip" data-shape="word" aria-pressed="false" data-i18n="shape.word">Pozitiv</button>
+      <button type="button" class="chip" data-shape="knot" aria-pressed="false" data-i18n="shape.knot">Узел</button>
+      <button type="button" class="chip" data-shape="helix" aria-pressed="false" data-i18n="shape.helix">ДНК</button>
+      <button type="button" class="chip" data-shape="cube" aria-pressed="false" data-i18n="shape.cube">Куб</button>
+    </div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Python · Full-Stack · AI</p>
+      <h1 data-i18n="hero.title">Делаю ботов, сайты и AI-продукты, которыми приятно пользоваться.</h1>
+      <p class="typed"><span id="typed-text"></span><span class="caret" aria-hidden="true"></span></p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#projects" data-i18n="hero.cta.projects">Смотреть проекты</a>
+        <a class="btn" href="resume.html" data-i18n="hero.cta.resume">Резюме</a>
+      </div>
+      <p class="hint" data-i18n="hero.hint">Двигай курсором или пальцем — частицы реагируют. Клик меняет форму.</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap reveal">
+      <h2 class="section-title" data-i18n="about.title">Обо мне</h2>
+      <div class="about-grid">
+        <div>
+          <p class="lead" data-i18n="about.lead">Я Python-разработчик с full-stack уклоном.</p>
+          <p data-i18n="about.text">Люблю доводить идею до рабочего продукта: от Telegram-бота и сервера до интерфейса, на который приятно смотреть. Последние проекты — ИИ-администратор на Claude, программа компьютерного зрения и фронт VPN-сервиса.</p>
+        </div>
+        <div id="skills" class="skills"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="projects">
+    <div class="wrap reveal">
+      <h2 class="section-title" data-i18n="projects.title">Проекты</h2>
+      <p class="section-sub" data-i18n="projects.sub">Избранное. Каждый проект — отдельный репозиторий на GitHub.</p>
+      <div id="projects-grid" class="cards"></div>
+    </div>
+  </section>
+
+  <section class="section" id="resume">
+    <div class="wrap reveal">
+      <h2 class="section-title" data-i18n="resume.title">Резюме</h2>
+      <div class="panel resume-teaser">
+        <p data-i18n="resume.text">Короткая версия — здесь, полная — на отдельной странице. Её можно сохранить в PDF одной кнопкой.</p>
+        <a class="btn primary" href="resume.html" data-i18n="resume.cta">Открыть резюме</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="contact">
+    <div class="wrap reveal">
+      <h2 class="section-title" data-i18n="contact.title">Контакты</h2>
+      <p class="lead" data-i18n="contact.lead">Открыт к предложениям: работа в команде и фриланс-проекты.</p>
+      <ul id="contacts" class="contacts"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p><span data-i18n="footer.text">Сделано на чистом HTML, CSS и JS — без сборки.</span> © 2026 Pozitiv</p>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/hero.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

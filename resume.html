@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="r.meta.title">Pozitiv — Резюме</title>
+  <meta name="description" content="Pozitiv — résumé / резюме. Python & Full-Stack developer.">
+  <meta name="theme-color" content="#07080c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav scrolled no-print">
+  <a class="brand" href="index.html" aria-label="Pozitiv">Pozitiv<span class="brand-dot">.</span></a>
+  <nav class="nav-links">
+    <a href="index.html" data-i18n="r.back">← На главную</a>
+  </nav>
+  <button id="print-btn" class="chip" type="button" data-i18n="r.print">Сохранить в PDF</button>
+  <button id="lang-toggle" class="chip" type="button" data-i18n-aria="lang.label" aria-label="Сменить язык">EN</button>
+</header>
+
+<main class="r-page">
+  <article class="paper">
+
+    <header class="r-head">
+      <p class="prompt mono">$ whoami</p>
+      <h1>Pozitiv</h1>
+      <p class="r-role" data-i18n="r.role">Python-разработчик · Full-Stack</p>
+    </header>
+
+    <section>
+      <h2 class="r-title" data-i18n="r.summary.title">Обо мне</h2>
+      <p data-i18n="r.summary"></p>
+    </section>
+
+    <section>
+      <h2 class="r-title" data-i18n="r.skills.title">Навыки</h2>
+      <div id="r-skills" class="skills"></div>
+    </section>
+
+    <section>
+      <h2 class="r-title" data-i18n="r.projects.title">Проекты</h2>
+      <div id="r-projects" class="r-list"></div>
+    </section>
+
+    <section hidden>
+      <h2 class="r-title" data-i18n="r.exp.title">Опыт</h2>
+      <div id="r-exp-list" class="r-list"></div>
+    </section>
+
+    <section hidden>
+      <h2 class="r-title" data-i18n="r.edu.title">Образование</h2>
+      <div id="r-edu-list" class="r-list"></div>
+    </section>
+
+    <section>
+      <h2 class="r-title" data-i18n="r.links.title">Ссылки</h2>
+      <ul id="r-contacts" class="contacts"></ul>
+    </section>
+
+  </article>
+</main>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Карточка для превью в соцсетях (1200×630). Рендер:
+     "Google Chrome" --headless=new --hide-scrollbars --window-size=1200,630 \
+       --screenshot=assets/og-image.png file://$PWD/tools/og-card.html -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; background: #07080c; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+    color: #e9edf4;
+    background:
+      radial-gradient(ellipse at 78% 50%, rgba(61, 224, 255, 0.10), transparent 55%),
+      radial-gradient(ellipse at 20% 100%, rgba(184, 255, 74, 0.07), transparent 50%),
+      #07080c;
+  }
+  canvas { position: absolute; right: 0; top: 0; }
+  .copy { position: absolute; left: 80px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+  .brand { font: 700 54px ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.02em; }
+  .brand span { color: #b8ff4a; }
+  h1 { margin: 0; font-size: 62px; line-height: 1.08; letter-spacing: -0.025em; font-weight: 800; max-width: 640px; }
+  .sub { font: 500 26px ui-monospace, "SF Mono", Menlo, monospace; color: #3de0ff; }
+  .sub b { color: #b8ff4a; font-weight: 500; }
+  .url { font: 500 22px ui-monospace, "SF Mono", Menlo, monospace; color: #98a1b3; margin-top: 10px; }
+</style>
+</head>
+<body>
+<canvas id="c" width="640" height="630"></canvas>
+<div class="copy">
+  <div class="brand">Pozitiv<span>.</span></div>
+  <h1>Python &amp; Full-Stack developer</h1>
+  <div class="sub"><b>&gt;</b> Telegram bots · Websites · AI products</div>
+  <div class="url">pozitivstek.github.io</div>
+</div>
+<script>
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  const COUNT = 2600, FOV = 3.2, SCALE = 200, CX = 400, CY = 315;
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  const yaw = 0.7, pitch = 0.45;
+  const palette = [[184, 255, 74], [61, 224, 255], [139, 92, 255]];
+  let seed = 7;
+  const rand = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+  ctx.globalCompositeOperation = 'lighter';
+  for (let i = 0; i < COUNT; i++) {
+    const y = 1 - (i / (COUNT - 1)) * 2, r = Math.sqrt(1 - y * y), a = golden * i;
+    let x = Math.cos(a) * r, z = Math.sin(a) * r;
+    const x1 = x * Math.cos(yaw) + z * Math.sin(yaw), z1 = -x * Math.sin(yaw) + z * Math.cos(yaw);
+    const y2 = y * Math.cos(pitch) - z1 * Math.sin(pitch), z2 = y * Math.sin(pitch) + z1 * Math.cos(pitch);
+    const p = FOV / (FOV + z2);
+    const depth = (z2 + 1) / 2;                       // 0 — ближняя точка, 1 — дальняя
+    const [cr, cg, cb] = palette[rand() < 0.5 ? 0 : rand() < 0.7 ? 1 : 2];
+    ctx.fillStyle = `rgba(${cr},${cg},${cb},${(0.95 - depth * 0.7).toFixed(2)})`;
+    const s = 1.2 + p * 1.9;
+    ctx.fillRect(CX + x1 * p * SCALE - s / 2, CY + y2 * p * SCALE - s / 2, s, s);
+  }
+</script>
+</body>
+</html>
