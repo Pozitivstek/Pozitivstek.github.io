@@ -81,8 +81,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- резюме: сохранить в PDF ---------- */
-
-  const printButton = document.getElementById('print-btn');
-  if (printButton) printButton.addEventListener('click', () => window.print());
+  /* Кнопка «Сохранить в PDF» на странице резюме обрабатывается в terminal.js:
+     сначала переключает на версию-документ, затем вызывает печать. */
 })();

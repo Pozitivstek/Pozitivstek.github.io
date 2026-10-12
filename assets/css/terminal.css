@@ -1,0 +1,123 @@
+/* Интерактивное резюме (терминал). Переменные цветов — из style.css. */
+
+.term-wrap { max-width: 980px; margin: 0 auto; }
+
+.term {
+  background: #0c0e15;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--line);
+}
+.term-bar i { display: block; width: 12px; height: 12px; border-radius: 50%; }
+.term-bar .r { background: #ff5f56; }
+.term-bar .y { background: #ffbd2e; }
+.term-bar .g { background: #27c93f; }
+.term-title { margin: 0 auto; padding-right: 44px; font: 12px var(--mono); color: var(--muted); }
+
+.term-screen {
+  height: min(66vh, 620px);
+  overflow-y: auto;
+  padding: 18px 20px 8px;
+  font: 14px/1.65 var(--mono);
+  cursor: text;
+}
+.term-screen .row { white-space: pre-wrap; overflow-wrap: anywhere; }
+.term-screen .block { margin: 0 0 14px; }
+.term-screen .block.echo { margin-bottom: 4px; }
+
+.term .c-lime { color: var(--lime); }
+.term .c-cyan { color: var(--cyan); }
+.term .c-violet { color: var(--violet); }
+.term .c-muted { color: var(--muted); }
+.term .c-danger { color: #ff6b6b; }
+.term .c-live { color: var(--lime); }
+.term .c-wip { color: var(--cyan); }
+.term .c-soon { color: var(--muted); }
+.term .c-strong { font-weight: 700; color: var(--text); }
+.term .c-big { font-size: 28px; font-weight: 700; letter-spacing: 0.02em; }
+.term a { text-decoration: none; border-bottom: 1px dashed currentColor; }
+.term a:hover { border-bottom-style: solid; }
+
+.term .group { margin-bottom: 10px; }
+.term .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.term .tag {
+  padding: 1px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.term .neofetch { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; }
+.term .neofetch .art { margin: 0; font: inherit; line-height: 1.5; }
+
+.term-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 20px;
+  border-top: 1px solid var(--line);
+}
+.term-chip {
+  font: 600 12px var(--mono);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cyan);
+  cursor: pointer;
+}
+.term-chip:hover { border-color: var(--lime); color: var(--lime); }
+
+.prompt-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 14px;
+  border-top: 1px solid var(--line);
+  font: 14px var(--mono);
+}
+.prompt-line input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--text);
+  font: inherit;
+  caret-color: var(--lime);
+}
+
+.term-hint { margin-top: 12px; text-align: center; }
+
+/* переключение режимов: у <main> атрибут data-view */
+.r-page[data-view="term"] #view-doc { display: none; }
+.r-page[data-view="doc"] #view-term { display: none; }
+
+.nav-links .chip[aria-pressed="true"] {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: #0a0c10;
+}
+
+@media (max-width: 560px) {
+  .term-screen { font-size: 13px; height: 58vh; padding: 14px 14px 6px; }
+  .term-chips, .prompt-line { padding-left: 14px; padding-right: 14px; }
+  .term .c-big { font-size: 22px; }
+  .nav .chip[data-view-btn] { padding: 5px 9px; }
+}
+
+@media print {
+  #view-term { display: none !important; }
+  .r-page #view-doc { display: grid !important; }
+}

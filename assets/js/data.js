@@ -3,6 +3,7 @@ window.SITE = Object.freeze({
   profile: {
     name: 'Pozitiv',
     github: 'https://github.com/Pozitivstek',
+    site: 'https://pozitivstek.github.io',
     telegram: 'lkd_Pozitiv', // ник без @; пусто — ссылка не показывается
     email: 'pozitivstek@gmail.com', // пусто — ссылка не показывается
   },
@@ -37,7 +38,7 @@ window.SITE = Object.freeze({
       status: 'wip',
       repo: '',
       demo: '',
-      tags: ['Python', 'aiogram', 'Claude API', 'SQLite'],
+      tags: ['Python', 'aiogram 3', 'Claude API', 'SQLite'],
       title: { ru: 'ИИ-администратор записи', en: 'AI booking assistant' },
       desc: {
         ru: 'Telegram-бот на aiogram и Claude: ведёт диалог с клиентом, подбирает услугу, мастера и время и оформляет запись.',

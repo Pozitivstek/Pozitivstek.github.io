@@ -4,10 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-i18n="r.meta.title">Pozitiv — Резюме</title>
-  <meta name="description" content="Pozitiv — résumé / резюме. Python & Full-Stack developer.">
+  <meta name="description" content="Pozitiv — интерактивное резюме: введите команду в терминале или откройте документ. Python & Full-Stack developer.">
   <meta name="theme-color" content="#07080c">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Pozitiv — interactive résumé">
+  <meta property="og:description" content="Type a command or open the document version. Python & Full-Stack developer.">
+  <meta property="og:url" content="https://pozitivstek.github.io/resume.html">
+  <meta property="og:image" content="https://pozitivstek.github.io/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/terminal.css">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -15,14 +22,36 @@
 <header class="nav scrolled no-print">
   <a class="brand" href="index.html" aria-label="Pozitiv">Pozitiv<span class="brand-dot">.</span></a>
   <nav class="nav-links">
-    <a href="index.html" data-i18n="r.back">← На главную</a>
+    <button class="chip" type="button" data-view-btn="term" aria-pressed="true" data-i18n="t.view.term">Терминал</button>
+    <button class="chip" type="button" data-view-btn="doc" aria-pressed="false" data-i18n="t.view.doc">Документ</button>
+    <a href="index.html" data-priority="low" data-i18n="r.back">← На главную</a>
   </nav>
   <button id="print-btn" class="chip" type="button" data-i18n="r.print">Сохранить в PDF</button>
   <button id="lang-toggle" class="chip" type="button" data-i18n-aria="lang.label" aria-label="Сменить язык">EN</button>
 </header>
 
-<main class="r-page">
-  <article class="paper">
+<main class="r-page" id="r-main" data-view="term">
+
+  <!-- Режим «Терминал» -->
+  <section id="view-term" class="term-wrap">
+    <div class="term" id="term">
+      <div class="term-bar" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i>
+        <span class="term-title">pozitiv — resume.sh</span></div>
+      <div class="term-screen" id="term-screen" role="log" aria-live="polite">
+        <div id="term-out"></div>
+      </div>
+      <div class="term-chips" id="term-chips"></div>
+      <form id="term-form" class="prompt-line" autocomplete="off">
+        <span class="c-lime" aria-hidden="true">$</span>
+        <input id="term-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off"
+               autocorrect="off" aria-label="Command" placeholder="">
+      </form>
+    </div>
+    <p class="term-hint muted small" data-i18n="t.hint">Введите команду или нажмите подсказку. Tab — автодополнение, ↑ — история.</p>
+  </section>
+
+  <!-- Режим «Документ» (он же версия для печати и PDF) -->
+  <article class="paper" id="view-doc">
 
     <header class="r-head">
       <p class="prompt mono">$ whoami</p>
@@ -66,6 +95,7 @@
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/render.js"></script>
+<script src="assets/js/terminal.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
