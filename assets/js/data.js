@@ -9,7 +9,7 @@ window.SITE = Object.freeze({
   },
 
   skills: [
-    { id: 'backend', items: ['Python', 'asyncio', 'aiogram 3', 'SQLite', 'REST API'] },
+    { id: 'backend', items: ['Python', 'asyncio', 'aiogram 3', 'FastAPI', 'SQLite', 'REST API'] },
     { id: 'ai', items: ['Claude API', 'OpenCV', 'ONNX Runtime', 'MediaPipe', 'CLIP'] },
     { id: 'front', items: ['HTML5', 'CSS3', 'JavaScript', 'Canvas', 'PWA'] },
     { id: 'tools', items: ['Linux', 'SSH / VPS', 'Git & GitHub', 'PySide6'] },
@@ -17,6 +17,20 @@ window.SITE = Object.freeze({
 
   // status: 'live' | 'wip' | 'soon'. Нет repo — кнопка не показывается.
   projects: [
+    {
+      id: 'fodmap-compass',
+      glyph: 'FOOD',
+      hue: 165,
+      status: 'live',
+      repo: 'https://github.com/Pozitivstek/fodmap-compass',
+      demo: 'https://t.me/dnewnikzdaroviabot',
+      tags: ['Python', 'FastAPI', 'aiogram 3', 'Telegram Mini App', 'SQLite', 'JavaScript'],
+      title: { ru: 'ФудКомпас: бот и мини-приложение для low-FODMAP', en: 'FoodCompass: low-FODMAP bot and Mini App' },
+      desc: {
+        ru: 'Можно ли продукт и в какой порции: 320 продуктов, сканер штрихкодов, дневник еды и самочувствия, личная переносимость, КБЖУ, рецепты, PDF-отчёт врачу и 9 тем.',
+        en: 'Is this food safe and how much: 320 foods, barcode scanner, food and symptom diary, personal tolerance, macros, recipes, a PDF report for the doctor and 9 themes.',
+      },
+    },
     {
       id: 'pozitiv-vpn',
       glyph: 'VPN',
