@@ -18,6 +18,20 @@ window.SITE = Object.freeze({
   // status: 'live' | 'wip' | 'soon'. Нет repo — кнопка не показывается.
   projects: [
     {
+      id: 'fpv-drone-bot',
+      glyph: 'FPV',
+      hue: 300,
+      status: 'live',
+      repo: 'https://github.com/Pozitivstek/fpv-drone-bot',
+      demo: 'https://t.me/fpvdronsplaybot',
+      tags: ['Python', 'FastAPI', 'aiogram 3', 'Telegram Mini App', 'Canvas', 'SQLite', 'JavaScript'],
+      title: { ru: 'FPV-Drons: игра про FPV-дроны в Telegram', en: 'FPV-Drons: an FPV drone game in Telegram' },
+      desc: {
+        ru: 'Кейсы с ~140 реальными деталями, сборка дрона с проверкой совместимости, FPV-гонка от первого лица на Canvas с «призраком» рекорда и серверным античитом, мастерская, задания и админка.',
+        en: 'Loot crates with ~140 real parts, drone building with compatibility checks, a first-person Canvas FPV race with a record ghost and server-side anti-cheat, a workshop, quests and an admin panel.',
+      },
+    },
+    {
       id: 'fodmap-compass',
       glyph: 'FOOD',
       hue: 165,
